@@ -100,4 +100,7 @@ Route::get('/yearbook/accept/{token}', 'InviteController@accept')->name('accept'
 
 
 //referenced by navbar2
+
 Route::get('/yearbook/trending','CountController@index');
+
+
