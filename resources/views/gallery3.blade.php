@@ -23,7 +23,7 @@
           </div>
           <div class="col" style="margin-right: 11px ; border: 1px solid;">
             <br>
-            <form class="form" id="form-comment" action="/comment" method="post">
+            <form class="form" id="form-comment" action="/yearbook/comment" method="post">
               {{csrf_field()}}
               <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -90,7 +90,7 @@
     }
 
     $.ajax({
-      url: "/likeadd",
+      url: "/yearbook/likeadd",
       type: "POST",
       data: formData,
 
@@ -117,7 +117,7 @@
         '_token' : $('#comment-token').val()
       }
       $.ajax({
-        url: "/commentadd",
+        url: "/yearbook/commentadd",
         type: "POST",
         data: formData,
 
@@ -134,7 +134,7 @@
 
 
       $.ajax({
-        url: "/likes",
+        url: "/yearbook/likes",
         type: "POST",
         data: formData,
 
@@ -166,7 +166,7 @@
     console.log(formData);
 
     $.ajax({
-      url: "/comment",
+      url: "/yearbook/comment",
       type: "POST",
       data: formData,
 

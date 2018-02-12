@@ -99,7 +99,7 @@
         <ul class="navbar-nav mx-auto">
           <li class="nav-item px-lg-6" data-step="4" data-intro="<center> Search and write about your friends </center> ">
 
-            <form action="search/" method="POST" class="form-inline">
+            <form action="/yearbook/search/" method="POST" class="form-inline">
               {{ csrf_field() }}
               <div class="form-group" >
                 <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
@@ -110,15 +110,15 @@
             </form>
           </li>
           <li class="nav-item active px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/trending"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/trending"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index"  data-step="6" data-intro="<center> See your profile and know what your friends think about you </center> ">{{Auth::user()->name}}</a>
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/profile_index"  data-step="6" data-intro="<center> See your profile and know what your friends think about you </center> ">{{Auth::user()->name}}</a>
           </li>
           <li class="nav-item px-lg-3 dropdown"  data-step="8" data-intro="<center> Update info ,Logout </center> ">
             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -126,13 +126,13 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right" >
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
+                <a class="nav-link text-dark" href="/yearbook/details">Edit Details</a>
               </li>
               <!--<li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="#">Change Password </a>
               </li>-->
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
+                <a class="nav-link text-dark" href="/yearbook/logout">Logout </a>
               </li>
 
             </ul>
@@ -158,7 +158,7 @@
                   </div>
                 </li>
                 @foreach($notifications as $notification)
-                <a href="/read/{{$notification['id']}}">
+                <a href="/yearbook/read/{{$notification['id']}}">
                   <li class="notification-box">
                     <div class="row">
                       @php
@@ -219,7 +219,7 @@
 
           <div class="modal-body">
 
-            <form action="/upload_pic_moto" method="post" enctype="multipart/form-data">
+            <form action="/yearbook/upload_pic_moto" method="post" enctype="multipart/form-data">
 
               {{csrf_field()}}
 
@@ -293,8 +293,8 @@
 
               <button type="button" class="btn btn-primary btn-md" data-toggle="modal" data-target="#modal2" data-step="1" data-intro="<center> Upload your profile picture and write a caption here </center> "  >Upload Picture and Caption
               </button>
-              <button type="button" class="btn btn-primary btn-md" onclick="location.href='/writeup'"  data-step="2" data-intro="<center> Share your interesting memories with us</center> ">Write Article</button>
-              <button type="button" class="btn btn-primary btn-md" onclick="location.href='/upload'"   data-step="3" data-intro="<center> Upload some Funny photos of you and your friend </center> "  >Upload Photo
+              <button type="button" class="btn btn-primary btn-md" onclick="location.href='/yearbook/writeup'"  data-step="2" data-intro="<center> Share your interesting memories with us</center> ">Write Article</button>
+              <button type="button" class="btn btn-primary btn-md" onclick="location.href='/yearbook/upload'"   data-step="3" data-intro="<center> Upload some Funny photos of you and your friend </center> "  >Upload Photo
               </button>
 
               

@@ -36,6 +36,6 @@ class mailController extends Controller
 
     	DB::table('users')->where('id',Auth::user()->id)->update(array('password'=> $password));
 
-    	return redirect('/home');
+    	return redirect('/yearbook/home');
 	}
 }

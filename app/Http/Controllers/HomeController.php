@@ -52,7 +52,7 @@ class HomeController extends Controller
             
             if( $user->isNotEmpty()){
                 $roll = $user[0]['rollno']; 
-                return redirect("/profile_index/".$roll);
+                return redirect("/yearbook/profile_index/".$roll);
             }
             else
                 return back()->with('Error','Sorry, we cannot find your friend in our database');
