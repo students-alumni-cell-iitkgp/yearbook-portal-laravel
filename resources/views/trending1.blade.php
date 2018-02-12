@@ -96,7 +96,7 @@
           </div>
           <div class="col" style="margin-right: 11px ; border: 1px solid;">
             <br>
-            <form class="form" id="form-comment" action="/comment" method="post">
+            <form class="form" id="form-comment" action="/yearbook/comment" method="post">
               {{csrf_field()}}
               <input id="comment-token" type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -133,7 +133,7 @@
         <ul class="navbar-nav mx-auto">
           <li class="nav-item px-lg-4">
 
-            <form action="search/" method="POST" class="form-inline">
+            <form action="/yearbook/search/" method="POST" class="form-inline">
               {{ csrf_field() }}
               <div class="form-group" >
                 <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
@@ -144,15 +144,15 @@
             </form>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item active px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/trending">Trending</a>
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/trending">Trending</a>
           </li>
           <li class="nav-item px-lg-4">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index">{{Auth::user()->name}}</a>
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/profile_index">{{Auth::user()->name}}</a>
           </li>
           <li class="nav-item px-lg-4 dropdown">
             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -160,13 +160,13 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right" >
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
+                <a class="nav-link text-dark" href="/yearbook/details">Edit Details</a>
               </li>
               <!--<li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="#">Change Password </a>
               </li>-->
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
+                <a class="nav-link text-dark" href="/yearbook/logout">Logout </a>
               </li>
 
             </ul>
@@ -192,7 +192,7 @@
                   </div>
                 </li>
                 @foreach($notifications as $notification)
-                <a href="/read/{{$notification['id']}}">
+                <a href="/yearbook/read/{{$notification['id']}}">
                   <li class="notification-box">
                     <div class="row">
                       @php
@@ -319,7 +319,7 @@
     }
 
     $.ajax({
-      url: "/likeadd",
+      url: "/yearbook/likeadd",
       type: "POST",
       data: formData,
 
@@ -346,7 +346,7 @@
         '_token' : $('#comment-token').val()
       }
       $.ajax({
-        url: "/commentadd",
+        url: "/yearbook/commentadd",
         type: "POST",
         data: formData,
 
@@ -363,7 +363,7 @@
 
 
       $.ajax({
-        url: "/likes",
+        url: "/yearbook/likes",
         type: "POST",
         data: formData,
 
@@ -395,7 +395,7 @@
     console.log(formData);
 
     $.ajax({
-      url: "/comment",
+      url: "/yearbook/comment",
       type: "POST",
       data: formData,
 

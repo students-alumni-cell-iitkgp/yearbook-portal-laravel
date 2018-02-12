@@ -121,7 +121,7 @@
       <ul class="navbar-nav mx-auto">
         <li class="nav-item px-lg-6">
 
-          <form action="search/" method="POST" class="form-inline">
+          <form action="/yearbook/search/" method="POST" class="form-inline">
             {{ csrf_field() }}
             <div class="form-group" >
               <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
@@ -132,15 +132,15 @@
           </form>
         </li>
         <li class="nav-item px-lg-3">
-          <a class="nav-link text-uppercase text-expanded" href="/home">Home
+          <a class="nav-link text-uppercase text-expanded" href="/yearbook/home">Home
             <span class="sr-only">(current)</span>
           </a>
         </li>
         <li class="nav-item px-lg-3">
-          <a class="nav-link text-uppercase text-expanded" href="/trending">Trending</a>
+          <a class="nav-link text-uppercase text-expanded" href="/yearbook/trending">Trending</a>
         </li>
         <li class="nav-item px-lg-3">
-          <a class="nav-link text-uppercase text-expanded" href="/profile_index">{{Auth::user()->name}}</a>
+          <a class="nav-link text-uppercase text-expanded" href="/yearbook/profile_index">{{Auth::user()->name}}</a>
         </li>
         <li class="nav-item px-lg-3 dropdown">
           <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -148,13 +148,13 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-right" >
             <li class="head text-dark bg-light">
-              <a class="nav-link text-dark" href="/details">Edit Details</a>
+              <a class="nav-link text-dark" href="/yearbook/details">Edit Details</a>
             </li>
            <!--<li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="#">Change Password </a>
               </li>-->
             <li class="head text-dark bg-light">
-              <a class="nav-link text-dark" href="/logout">Logout </a>
+              <a class="nav-link text-dark" href="/yearbook/logout">Logout </a>
             </li>
 
           </ul>
@@ -180,7 +180,7 @@
                 </div>
               </li>
               @foreach($notifications as $notification)
-              <a href="/read/{{$notification['id']}}">
+              <a href="/yearbook/read/{{$notification['id']}}">
                 <li class="notification-box">
                   <div class="row">
                     @php
@@ -221,7 +221,7 @@
             <br>
             
             <br>
-            <form id="upload-image-form" action="/upload" method="post" enctype="multipart/form-data">
+            <form id="upload-image-form" action="/yearbook/upload" method="post" enctype="multipart/form-data">
               <input id="signup-token" type="hidden" name="_token" value="{{ csrf_token() }}">
               <div class="form-group">
                 <label for="classifiers">Select Category: (Max size: 5MB)</label>
@@ -322,7 +322,7 @@ $(document).ready(function (e) {
      }
      console.log("crop image",originalData);
      $.ajax({
-      url: "/upload",
+      url: "/yearbook/upload",
       type: "POST",
       data: formdata,
       contentType: false,

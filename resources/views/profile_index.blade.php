@@ -126,7 +126,7 @@ crossorigin="anonymous"></script>
         <ul class="navbar-nav mx-auto">
           <li class="nav-item px-lg-6">
 
-            <form action="search/" method="POST" class="form-inline">
+            <form action="/yearbook/search/" method="POST" class="form-inline">
               {{ csrf_field() }}
               <div class="form-group" >
                 <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
@@ -137,15 +137,15 @@ crossorigin="anonymous"></script>
             </form>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/home">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/trending">Trending</a>
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/trending">Trending</a>
           </li>
           <li class="nav-item active px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index">{{Auth::user()->name}}</a>
+            <a class="nav-link text-uppercase text-expanded" href="/yearbook/profile_index">{{Auth::user()->name}}</a>
           </li>
           <li class="nav-item px-lg-3 dropdown">
             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -153,13 +153,13 @@ crossorigin="anonymous"></script>
             </a>
             <ul class="dropdown-menu dropdown-menu-right" >
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
+                <a class="nav-link text-dark" href="/yearbook/details">Edit Details</a>
               </li>
              <!--<li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="#">Change Password </a>
               </li>-->
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
+                <a class="nav-link text-dark" href="/yearbook/logout">Logout </a>
               </li>
 
             </ul>
@@ -185,7 +185,7 @@ crossorigin="anonymous"></script>
                   </div>
                 </li>
                 @foreach($notifications as $notification)
-                <a href="/read/{{$notification['id']}}">
+                <a href="/yearbook/read/{{$notification['id']}}">
                   <li class="notification-box">
                     <div class="row">
                       @php
@@ -373,7 +373,7 @@ crossorigin="anonymous"></script>
           var id = $(this).attr('data-id');
           var query= id;
 
-          window.location="/approve/"+id;
+          window.location="/yearbook/approve/"+id;
 
         }); 
         $('.disapprove').click('.disapprove',function(){
@@ -384,7 +384,7 @@ crossorigin="anonymous"></script>
 
           var query= '1';
 
-          window.location="/disapprove/"+id;
+          window.location="/yearbook/disapprove/"+id;
 
         }); 
 
