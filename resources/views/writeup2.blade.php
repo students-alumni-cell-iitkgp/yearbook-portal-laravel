@@ -12,10 +12,10 @@
 
   <!-- Bootstrap core CSS -->
 
-  <link rel="stylesheet" type="text/css" href="../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('../css/animate.css') }}"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  <script  src="{{ asset('https://code.jquery.com/jquery-3.2.1.min.js') }}"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 
 
@@ -23,18 +23,18 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
   <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  <link href="{{ asset('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="{{ asset('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i') }}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/business-casual.min.css" rel="stylesheet">
+  <link href="{{ asset('css/business-casual.min.css') }}" rel="stylesheet">
 
 
-  <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
-  <script src="js/autocomplete.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}">
+  <script src="{{ asset('js/autocomplete.js') }}"></script>
 
 
-  <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="{{ asset('http://fonts.googleapis.com/icon?family=Material+Icons') }}" rel="stylesheet">
   <style type="text/css">
   
   .dropdown-menu{
@@ -91,9 +91,9 @@
 
   <!-- Navigation--> 
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="background-color: rgba(67,100,107,0.55);">
-    <a class="navbar-brand text-light" href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="sac.png" alt="someimg"/></a>
+    <a class="navbar-brand text-light" href="{{ url('http://www.sac.iitkgp.ac.in') }}"><img height="90" width="250" src="{{ url('sac.png') }}" alt="someimg"/></a>
     <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="http://www.sac.iitkgp.ac.in">Yearbook</a>
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{{ url('http://www.sac.iitkgp.ac.in') }}">Yearbook</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -101,7 +101,7 @@
         <ul class="navbar-nav mx-auto">
           <li class="nav-item px-lg-6">
 
-            <form action="search/" method="POST" class="form-inline">
+            <form action="{{ url('search/') }}" method="POST" class="form-inline">
               {{ csrf_field() }}
               <div class="form-group" >
                 <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
@@ -112,15 +112,15 @@
             </form>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
+            <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/trending">Trending</a>
+            <a class="nav-link text-uppercase text-expanded" href="{{ url('/trending') }}">Trending</a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index">{{Auth::user()->name}}</a>
+            <a class="nav-link text-uppercase text-expanded" href="{{ url('/profile_index') }}">{{Auth::user()->name}}</a>
           </li>
           <li class="nav-item px-lg-3 dropdown">
             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -128,13 +128,13 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right" >
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
+                <a class="nav-link text-dark" href="{{ url('/details') }}">Edit Details</a>
               </li>
              <!--<li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="#">Change Password </a>
               </li>-->
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
+                <a class="nav-link text-dark" href="{{ url('/logout') }}">Logout </a>
               </li>
 
             </ul>
@@ -160,7 +160,7 @@
                   </div>
                 </li>
                 @foreach($notifications as $notification)
-                <a href="/read/{{$notification['id']}}">
+                <a href="{{ url('/read/{{$notification['id']}}') }}">
                   <li class="notification-box">
                     <div class="row">
                       @php
@@ -201,7 +201,7 @@
               <p class="mb-0"> 
               How have all these years in KGP transformed you? What’s your funniest experience in the campus? Share with us your stories to make it a part of the yearbook that you carry along. Choose the topic below and send us your articles.</p>
               <br>
-              <form class="form-horizontal" method="POST" action="/writeup">
+              <form class="form-horizontal" method="POST" action="{{ url('/writeup') }}">
                 {{csrf_field()}}
                 <div class="row">
                   <div class="col-4">
@@ -253,7 +253,7 @@
                   <td >{{ $writeup->topic }}</td>
                   
                   <td onblur="update({{ $writeup->id }})" id="{{ $writeup->id }}" contenteditable >{!!  nl2br($writeup->writeup)!!}</td>
-                  <td style="width: 50px"><a href="/writeup/{{ $writeup->id }}"><i class="material-icons">delete</i></a></td>
+                  <td style="width: 50px"><a href="{{ url('/writeup/{{ $writeup->id }}') }}"><i class="material-icons">delete</i></a></td>
 
                 </tr>
                 <?php $k++ ; ?>
@@ -274,7 +274,7 @@
   <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-        <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
+        <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
       </div>
     </footer>
 </body>

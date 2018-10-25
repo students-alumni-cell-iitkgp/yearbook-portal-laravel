@@ -12,10 +12,10 @@
 
   <!-- Bootstrap core CSS -->
 
-  <link rel="stylesheet" type="text/css" href="../css/animate.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('../css/animate.css') }}"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <script  src="https://code.jquery.com/jquery-3.2.1.min.js"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  <script src="{{ asset('https://code.jquery.com/jquery-3.2.1.min.js') }}"  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
   crossorigin="anonymous"></script>
 
 
@@ -23,15 +23,15 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
 
   <!-- Custom fonts for this template -->
-  <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet">
+  <link href="{{ asset('https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i') }}" rel="stylesheet">
+  <link href="{{ asset('https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i') }}" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/business-casual.min.css" rel="stylesheet">
+  <link href="{{ asset('css/business-casual.min.css') }}" rel="stylesheet">
 
 
-  <link rel="stylesheet" type="text/css" href="css/autocomplete.css">
-  <script src="js/autocomplete.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/autocomplete.css') }}">
+  <script src="{{ asset('js/autocomplete.js') }}"></script>
   <style type="text/css">
   
   .dropdown-menu{
@@ -89,9 +89,9 @@
 
   <!-- Navigation--> 
   <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav" style="background-color: rgba(67,100,107,0.55);">
-    <a class="navbar-brand text-light" href="http://www.sac.iitkgp.ac.in"><img height="90" width="250" src="sac.png" alt="someimg"/></a>
+    <a class="navbar-brand text-light" href="{{ url('http://www.sac.iitkgp.ac.in') }}"><img height="90" width="250" src="{{ url('sac.png') }}" alt="someimg"/></a>
     <div class="container">
-      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="http://www.sac.iitkgp.ac.in">Yearbook</a>
+      <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="{{ url('http://www.sac.iitkgp.ac.in') }}">Yearbook</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -99,7 +99,7 @@
         <ul class="navbar-nav mx-auto">
           <li class="nav-item px-lg-6" data-step="4" data-intro="<center> Search and write about your friends </center> ">
 
-            <form action="search/" method="POST" class="form-inline">
+            <form action="{{ url('search/') }}" method="POST" class="form-inline">
               {{ csrf_field() }}
               <div class="form-group" >
                 <input type="text" name="search" required="required" id="search" class="form-control" placeholder="Search your friend here">
@@ -110,15 +110,15 @@
             </form>
           </li>
           <li class="nav-item active px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/home">Home
+            <a class="nav-link text-uppercase text-expanded" href="{{ url('/home') }}">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/trending"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
+            <a class="nav-link text-uppercase text-expanded" href="{{ url('/trending') }}"  data-step="5" data-intro="<center> See the most popular photos of Kgpians </center> ">Trending</a>
           </li>
           <li class="nav-item px-lg-3">
-            <a class="nav-link text-uppercase text-expanded" href="/profile_index"  data-step="6" data-intro="<center> See your profile and know what your friends think about you </center> ">{{Auth::user()->name}}</a>
+            <a class="nav-link text-uppercase text-expanded" href="{{ url('/profile_index') }}"  data-step="6" data-intro="<center> See your profile and know what your friends think about you </center> ">{{Auth::user()->name}}</a>
           </li>
           <li class="nav-item px-lg-3 dropdown"  data-step="8" data-intro="<center> Update info ,Logout </center> ">
             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
@@ -126,13 +126,13 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right" >
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/details">Edit Details</a>
+                <a class="nav-link text-dark" href="{{ url('/details') }}">Edit Details</a>
               </li>
               <!--<li class="head text-dark bg-light">
                 <a class="nav-link text-dark" href="#">Change Password </a>
               </li>-->
               <li class="head text-dark bg-light">
-                <a class="nav-link text-dark" href="/logout">Logout </a>
+                <a class="nav-link text-dark" href="{{ url('/logout') }}">Logout </a>
               </li>
 
             </ul>
@@ -219,7 +219,7 @@
 
           <div class="modal-body">
 
-            <form action="/upload_pic_moto" method="post" enctype="multipart/form-data">
+            <form action="{{ url('/upload_pic_moto') }}" method="post" enctype="multipart/form-data">
 
               {{csrf_field()}}
 
@@ -277,7 +277,7 @@
           @if(!empty(Auth::user()->pro_pic))
           <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" style="height: 600px" src="{{Auth::user()->pro_pic}}" alt="">
           @else
-          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" style="height: 600px" src="img/intro.jpg" alt="">
+          <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" style="height: 600px" src="{{ url('img/intro.jpg') }}" alt="">
           @endif
           <div class="intro-text left-0 text-center bg-faded p-5 rounded">
             <h2 class="section-heading mb-4">
@@ -323,11 +323,11 @@
                 <span class="section-heading-lower">Prevoius Yearbook</span>
               </h2>
               <div class="row">
-                <div class="col-lg-4 col-sm-4"><img src="ind/year16.jpg" width="100%" alt=""/></div>
+                <div class="col-lg-4 col-sm-4"><img src="{{ url('ind/year16.jpg') }}" width="100%" alt=""/></div>
 
-                <div class="col-lg-4 col-sm-4"> <img src="ind/year2015.jpg" width="100%"  alt=""/></div>
+                <div class="col-lg-4 col-sm-4"> <img src="{{ url('ind/year2015.jpg') }}" width="100%"  alt=""/></div>
 
-                <div class="col-lg-4 col-sm-4"> <img src="ind/year2014.jpg" width="100%"  alt=""/></div>
+                <div class="col-lg-4 col-sm-4"> <img src="{{ url('ind/year2014.jpg') }}" width="100%"  alt=""/></div>
               </div>
             </div>
           </div>
@@ -339,7 +339,7 @@
     <footer class="footer text-faded text-center py-5">
       <div class="container">
         <p class="m-0 small">Copyright &copy; Yearbook 2018</p>
-        <p class="m-0 small"><a target="_blank" href="http://www.sac.iitkgp.ac.in/team.php">Contact Us</a></p>
+        <p class="m-0 small"><a target="_blank" href="{{ url('http://www.sac.iitkgp.ac.in/team.php') }}">Contact Us</a></p>
       </div>
     </footer>
 

@@ -6,18 +6,18 @@
   <title>Yearbook</title>
   
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js') }}"></script>
+    <script src="{{ url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js') }}"></script>
+    <link href="{{ url('http://fonts.googleapis.com/icon?family=Material+Icons') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css') }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" type="text/css" href="/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/animate.css') }}">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{{ url('https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css') }}">
 
-  <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Raleway:300'>
+  <link rel='stylesheet prefetch' href="{{ url('https://fonts.googleapis.com/css?family=Raleway:300') }}">
 
-      <link rel="stylesheet" href="css/style1.css">
+      <link rel="stylesheet" href="{{ url('css/style1.css') }}">
 
   
 </head>
@@ -68,7 +68,7 @@ Welcome to<b> Yearbook'17</b> Portal </h3>
                 </div>
             </form>
 
-            <p class=" center sub-title main-title" >Contact us at:<br> <a href="mailto:yearbook2k17.kgp@gmail.com"> yearbook2k17.kgp@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at yearbook2k17.kgp@gmail.com</span></a></p>
+            <p class=" center sub-title main-title" >Contact us at:<br> <a href="{{ url('mailto:yearbook2k17.kgp@gmail.com')  }}"> yearbook2k17.kgp@gmail.com<a><i class="material-icons">error_outline</i><span class="tooltip">If you are not graduating this year, but want to write about your friends who are graduating, send us the testimonials via mail at yearbook2k17.kgp@gmail.com</span></a></p>
 
             </small></h1>
   </div>
